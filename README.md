@@ -1,4 +1,4 @@
-# marked-forms
+# marked-images
 
 Simple [marked renderer](https://github.com/chjj/marked#renderer) to include image attributes in markdown.
 Also generates vimeo links.
