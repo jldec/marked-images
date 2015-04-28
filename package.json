@@ -1,14 +1,13 @@
 {
   "name": "marked-images",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Simple marked renderer for image attributes in markdown. Also generates vimeo links.",
   "main": "marked-images.js",
-  "license": "MIT",
   "dependencies": {
   },
   "devDependencies": {
-    "mocha": "*",
-    "marked": "*"
+    "mocha": "^2.2.4",
+    "marked": "^0.3.3"
   },
   "scripts": {
     "test": "mocha --ui qunit"
