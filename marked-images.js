@@ -19,7 +19,12 @@ module.exports = function markedImage(renderer) {
 
     var out, iframe;
 
-    if (renderer.options.fqImages && /^\//.test(href)) { href = renderer.options.fqImages + href; }
+    // TODO: don't like to inject options by side-effecting the renderer
+    // need to get a page and global options context which is more direct
+    var qualify = renderer.options.fqImages || renderer.options.relPaths;
+
+    // qualify absolute paths starting with /path... (not //...)
+    if (qualify && /^\/[^\/]/i.test(href)) { href = qualify + href; }
 
     if (href && (m = href.match(/vimeo\/(\d+)/i))) {
       iframe = true;
