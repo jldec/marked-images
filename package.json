@@ -1,6 +1,6 @@
 {
   "name": "marked-images",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple marked renderer for image attributes in markdown. Also generates vimeo links.",
   "main": "marked-images.js",
   "dependencies": {
