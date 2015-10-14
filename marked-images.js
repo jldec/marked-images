@@ -13,6 +13,8 @@
  *
 **/
 
+var startsWith = require('lodash.startswith');
+
 module.exports = function markedImage(renderer) {
 
   renderer.image = function image(href, title, text) {
@@ -21,10 +23,15 @@ module.exports = function markedImage(renderer) {
 
     // TODO: don't like to inject options by side-effecting the renderer
     // need to get a page and global options context which is more direct
-    var qualify = renderer.options.fqImages || renderer.options.relPath;
+    var linkOpts = renderer.options;
 
-    // qualify absolute paths starting with /path... (not //...)
-    if (qualify && /^\/[^\/]/i.test(href)) { href = qualify + href; }
+    // TODO: reconcile similar logic in pub-generator/render.js and helpers.js
+    var imgRoute = linkOpts.fqImages && (linkOpts.fqImages.route || '/images/');
+    var imgPrefix = linkOpts.fqImages && linkOpts.fqImages.url;
+    var linkPrefix = linkOpts.fqLinks || linkOpts.relPath;
+
+    if (imgPrefix && startsWith(href, imgRoute)) { href = imgPrefix + href; }
+    else if (linkPrefix && /^\/([^\/]|$)/.test(href)) { href = linkPrefix + href; }
 
     if (href && (m = href.match(/vimeo\/(\d+)/i))) {
       iframe = true;
