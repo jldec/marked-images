@@ -47,7 +47,7 @@ module.exports = function markedImage(renderer) {
     var m;
     a.forEach(function(w) {
       if (m = w.match(/^(\d+)x(\d+)$/)) return (out += ' width="' + m[1] + '" height="' + m[2] + '"');
-      if (m = w.match(/^(\w+)=(\w+)$/)) return (out += ' ' + m[1] + '="' + m[2] + '"');
+      if (m = w.match(/^(\S+)=(\S+)$/)) return (out += ' ' + m[1] + '="' + m[2] + '"');
       if (w) return b.push(w);
     })
     title = b.join(' ');
