@@ -9,7 +9,7 @@
  * usage: imgRenderer = markedImage(renderer)
  *
  * original function: copyright Christopher Jeffrey -- https://github.com/chjj/marked/ (MIT License)
- * extension copyright 2015, Jurgen Leschner - github.com/jldec/ - MIT license
+ * extension copyright 2015-2019, Jurgen Leschner - github.com/jldec/ - MIT license
  *
 **/
 
@@ -31,7 +31,7 @@ module.exports = function markedImage(renderer) {
     var linkPrefix = linkOpts.fqLinks || linkOpts.relPath;
 
     if (imgPrefix && startsWith(href, imgRoute)) { href = imgPrefix + href; }
-    else if (linkPrefix && /^\/([^\/]|$)/.test(href)) { href = linkPrefix + href; }
+    else if (linkPrefix && /^\/([^/]|$)/.test(href)) { href = linkPrefix + href; }
 
     if (href && (m = href.match(/vimeo\/(\d+)/i))) {
       iframe = true;
@@ -46,10 +46,10 @@ module.exports = function markedImage(renderer) {
     var b = [];
     var m;
     a.forEach(function(w) {
-      if (m = w.match(/^(\d+)x(\d+)$/)) return (out += ' width="' + m[1] + '" height="' + m[2] + '"');
-      if (m = w.match(/^(\w+)=(\w+)$/)) return (out += ' ' + m[1] + '="' + m[2] + '"');
+      if ((m = w.match(/^(\d+)x(\d+)$/))) return (out += ' width="' + m[1] + '" height="' + m[2] + '"');
+      if ((m = w.match(/^(\w+)=(\w+)$/))) return (out += ' ' + m[1] + '="' + m[2] + '"');
       if (w) return b.push(w);
-    })
+    });
     title = b.join(' ');
 
     if (title) {
@@ -61,7 +61,7 @@ module.exports = function markedImage(renderer) {
            '>';
 
     return out;
-  }
+  };
 
   return renderer;
-}
+};

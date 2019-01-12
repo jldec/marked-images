@@ -1,17 +1,17 @@
 /**
  * test-markedext
  * tests for marked.js extensions
- * copyright 2015, Jurgen Leschner - github.com/jldec - MIT license
+ * copyright 2015-2019, Jurgen Leschner - github.com/jldec - MIT license
  *
 **/
+/*eslint indent: "off"*/
 
-var test = require('tape')
+var test = require('tape');
 
 var inspect = require('util').inspect;
-var assert = require('assert');
 var marked = require('marked');
 var renderer = require('../marked-images')(new marked.Renderer());
-var markdown = function(txt) { return marked(txt, {renderer:renderer}); }
+var markdown = function(txt) { return marked(txt, {renderer:renderer}); };
 
 var tests = [
 
