@@ -1,4 +1,5 @@
 # marked-images
+[![Build Status](https://travis-ci.org/jldec/marked-images.svg?branch=master)](https://travis-ci.org/jldec/marked-images)
 
 Simple [marked renderer](https://marked.js.org/#/USING_PRO.md#renderer) to include image attributes in markdown.
 Also generates vimeo links.
