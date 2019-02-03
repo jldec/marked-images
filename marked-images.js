@@ -8,7 +8,7 @@
  *
  * usage: imgRenderer = markedImage(renderer)
  *
- * original function: copyright Christopher Jeffrey -- https://github.com/chjj/marked/ (MIT License)
+ * original function: copyright Christopher Jeffrey -- https://github.com/markedjs/marked (MIT License)
  * extension copyright 2015-2019, Jurgen Leschner - github.com/jldec/ - MIT license
  *
 **/
