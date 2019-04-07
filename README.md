@@ -1,4 +1,5 @@
 # marked-images
+[![Azure Build Status](https://dev.azure.com/jldec/marked-images/_apis/build/status/jldec.marked-images?branchName=master)](https://dev.azure.com/jldec/marked-images/_build/latest?definitionId=1&branchName=master)[![Build Status](https://travis-ci.org/jldec/marked-images.svg?branch=master)](https://travis-ci.org/jldec/marked-images)
 [![Build Status](https://travis-ci.org/jldec/marked-images.svg?branch=master)](https://travis-ci.org/jldec/marked-images)
 
 Simple [marked renderer](https://marked.js.org/#/USING_PRO.md#renderer) to include image attributes in markdown.
