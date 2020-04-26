@@ -1,6 +1,6 @@
 /**
  * test-markedext
- * tests for marked.js extensions
+ * tests for marked-images plugin
  * copyright 2015-2020, Jürgen Leschner - github.com/jldec - MIT license
  *
 **/
@@ -10,8 +10,8 @@ var test = require('tape');
 
 var inspect = require('util').inspect;
 var marked = require('marked');
-var renderer = require('../marked-images')(new marked.Renderer());
-var markdown = function(txt) { return marked(txt, {renderer:renderer}); };
+var markedImages = require('../marked-images');
+marked.use(markedImages());
 
 var tests = [
 
@@ -91,7 +91,7 @@ test('sanity check unwrap()', function(t) {
 
 tests.forEach(function(tst){
   test(inspect(tst.in).slice(1,-1) + (tst.comment || ''), function(t){
-    var actual = markdown(tst.in);
+    var actual = marked(tst.in);
     // console.log('@@@\n%s\n@@@', actual);
     t.equal(unwrap(actual), tst.out);
     t.end();

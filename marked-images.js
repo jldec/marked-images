@@ -1,12 +1,12 @@
 /**
  * marked-images.js
  *
- * image extensions for marked.js
+ * marked.js plugin renderer for images
  * generate width="a" and height="b" attributes from axb pattern in title string E.g ![](src "100x50")
  *          attr="x" from attr=x (with no "") e.g. ![](src "width=100 height=50 align=right")
  *          vimeo standard <iframe.. ></iframe> from ![](vimeo/nnn) where nnn is the vimeo id
  *
- * usage: imgRenderer = markedImage(renderer)
+ * usage: marked.use(markedImages(opts))
  *
  * original function: copyright Christopher Jeffrey -- https://github.com/markedjs/marked (MIT License)
  * extension copyright 2015-2020, Jürgen Leschner - github.com/jldec/ - MIT license
@@ -15,20 +15,19 @@
 
 var startsWith = require('lodash.startswith');
 
-module.exports = function markedImage(renderer) {
+module.exports = function markedImages(opts) {
 
-  renderer.image = function image(href, title, text) {
+  opts = opts || {};
+  var imgRoute = opts.fqImages && (opts.fqImages.route || '/images/');
+  var imgPrefix = opts.fqImages && opts.fqImages.url;
+  var linkPrefix = opts.fqLinks || opts.relPath;
+  var xhtml = opts.xhtml;
+
+  return { renderer: {image: renderImage} };
+
+  function renderImage(href, title, text) {
 
     var out, iframe;
-
-    // TODO: don't like to inject options by side-effecting the renderer
-    // need to get a page and global options context which is more direct
-    var linkOpts = renderer.options;
-
-    // TODO: reconcile similar logic in pub-generator/render.js and helpers.js
-    var imgRoute = linkOpts.fqImages && (linkOpts.fqImages.route || '/images/');
-    var imgPrefix = linkOpts.fqImages && linkOpts.fqImages.url;
-    var linkPrefix = linkOpts.fqLinks || linkOpts.relPath;
 
     if (imgPrefix && startsWith(href, imgRoute)) { href = imgPrefix + href; }
     else if (linkPrefix && /^\/([^/]|$)/.test(href)) { href = linkPrefix + href; }
@@ -57,11 +56,9 @@ module.exports = function markedImage(renderer) {
     }
 
     out += iframe ? '></iframe>' :
-           renderer.options.xhtml ? '/>' :
+           xhtml ? '/>' :
            '>';
 
     return out;
-  };
-
-  return renderer;
+  }
 };

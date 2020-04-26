@@ -11,14 +11,25 @@ npm install marked-images
 ```
 
 ## usage
+*NOTE: breaking change:*  
+As of v2.0.0, this library uses the [`marked.use()`](https://marked.js.org/#/USING_PRO.md#use) plugin api.
 
 ```javascript
 var marked = require('marked');
-var renderer = new marked.Renderer();
 
-require('marked-images')(renderer);    // monkey-patches the renderer
+var markedImages = require('marked-images');
 
-var html = marked(markdown, {renderer:renderer});
+// opts are optional
+var opts = {
+  xhtml: false,
+  fqImages: { route: '/images/', url:'https://images.example.com' }, // use custom image endpoint url when link starts with route
+  fqLinks: 'https://www.example.com',                                // generate fully qualified links if fqImages is not set
+  relPath: false
+}
+
+marked.use(markedImages(opts));
+
+var html = marked(markdown);
 ```
 
 #### simple width and height
