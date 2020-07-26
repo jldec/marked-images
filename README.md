@@ -1,5 +1,5 @@
 # marked-images
-![CI](https://github.com/jldec/marked-images/workflows/CI/badge.svg)
+[![CI](https://github.com/jldec/marked-images/workflows/CI/badge.svg)](https://github.com/jldec/marked-images/actions)
 
 Simple [marked renderer](https://marked.js.org/#/USING_PRO.md#renderer) to include image attributes in markdown.
 Also generates vimeo links.
