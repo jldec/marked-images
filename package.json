@@ -1,17 +1,17 @@
 {
   "name": "marked-images",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Simple marked renderer for image attributes in markdown. Also generates vimeo links.",
   "main": "marked-images.js",
   "peerDependencies": {
-    "marked": "^1.1.1"
+    "marked": "^1.2.3"
   },
   "dependencies": {
     "lodash.startswith": "^4.2.1"
   },
   "devDependencies": {
-    "eslint": "^7.5.0",
-    "marked": "^1.1.1",
+    "eslint": "^7.13.0",
+    "marked": "^1.2.3",
     "tape": "^5.0.1"
   },
   "files": [
