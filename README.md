@@ -58,6 +58,18 @@ generates:
 <img src="src" alt="" width="1" height="2" align="right" title="title text">
 ```
 
+#### CSS classnames
+.{classname}
+
+```md
+![Alt-text](src ".class1 .class-2 .class_3 10x10"
+```
+
+generates:
+```html
+<img src="src" alt="Alt-text" width="10" height="10" class="class1 class-2 class_3">
+```
+
 #### vimeo link
 start src with 'vimeo/' e.g.
 

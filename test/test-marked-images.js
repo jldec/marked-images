@@ -52,6 +52,12 @@ out:'<img src="src" alt="" width="1" height="2" title="title text">'}
 {in:'![](src "class=j_k-22 title text")',
 out:'<img src="src" alt="" class="j_k-22" title="title text">'}
 ,
+{in:'![](src "class=j_k-22 title text .foo")',
+out:'<img src="src" alt="" class="j_k-22 foo" title="title text">'}
+,
+{in:'![](src ".class1 .class-2 .class_3 10x10")',
+out:'<img src="src" alt="" width="10" height="10" class="class1 class-2 class_3">'}
+,
 {in:'![](src "width=1 height=2 title text")',
 out:'<img src="src" alt="" width="1" height="2" title="title text">'}
 ,
