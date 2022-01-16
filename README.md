@@ -11,8 +11,11 @@ npm install marked-images
 ```
 
 ## usage
-*NOTE: breaking change:*  
-As of v2.0.0, this library uses the [`marked.use()`](https://marked.js.org/#/USING_PRO.md#use) plugin api.
+
+*NOTE: breaking changes:*
+
+- As of v2.0.0, this library uses the [`marked.use()`](https://marked.js.org/#/USING_PRO.md#use) plugin api.
+- As of v3.0.0, since [marked v4.x](https://github.com/markedjs/marked/releases/tag/v4.0.0) the `marked()` function is no longer the default export. CommonJS code which does `marked = require(marked)` should be changed to call `marked.marked(<markdown-string>)` instead of `marked()`.
 
 ```javascript
 var marked = require('marked');
@@ -29,7 +32,7 @@ var opts = {
 
 marked.use(markedImages(opts));
 
-var html = marked(markdown);
+var html = marked.marked(markdown);
 ```
 
 #### simple width and height

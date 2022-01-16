@@ -15,7 +15,7 @@
  * usage: marked.use(markedImages(opts))
  *
  * original function: copyright Christopher Jeffrey -- https://github.com/markedjs/marked (MIT License)
- * extension copyright 2015-2020, Jürgen Leschner - github.com/jldec/ - MIT license
+ * extension Copyright (c) 2015-2022 Jürgen Leschner - github.com/jldec/ - MIT license
  *
 **/
 
