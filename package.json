@@ -3,6 +3,7 @@
   "version": "3.0.2",
   "description": "Simple marked renderer for image attributes in markdown. Also generates vimeo links.",
   "main": "marked-images.js",
+  "types": "./types/index.d.ts",
   "peerDependencies": {
     "marked": "^4.1.1"
   },
